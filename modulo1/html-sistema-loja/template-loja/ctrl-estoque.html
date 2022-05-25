@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Controle de Estoque</title>
 </head>
 <body>
-    <header>
-        <p>Nome da lojinha</p>
-    </header>
     
-    <nav>
+    <header class="cabecalho"> 
+
+        <h1 class="nome-loja"><em>Lojinha de frutas do Saviola</em>!</h1>
+    <nav class="nav-list">
         <a href="index.html">Página Inicial</a>
         <a href="ctrl-estoque.html">Controle de Estoque</a>
         <a href="add-produto.html">Adicionar Produto</a>
         <a href="funcionarios.html">Funcionários</a>
+        <a href="pagina-venda.html">Página de venda</a>
     </nav>
+ 
+        
+    </header>
 
-    <h2>Controle de Estoque</h2>
+    <h2 class="cor-azul">Controle de Estoque</h2>
 
-    <table>
+    <table class="tabela">
         <tr>
-            <th>Foto</th>
-            <th>Descrição</th>
-            <th>Preço (R$)</th>
-            <th>Quantidade disponível</th>
+            <th id="cor-foto">Foto</th>
+            <th class="cor-descricao">Descrição</th>
+            <th class="cor-preco">Preço (R$)</th>
+            <th class="cor-quantidade">Quantidade disponível</th>
         </tr>
 
         <tr>

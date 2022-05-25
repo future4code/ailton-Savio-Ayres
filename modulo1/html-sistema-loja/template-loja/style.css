@@ -1,0 +1,89 @@
+* {
+  margin: 0px;
+  
+} 
+.nav-list a {
+  text-decoration: none;
+    letter-spacing: 3px;
+    margin-left: 70px;
+    color: white;
+    font-size: 15px;
+}
+
+.cabecalho {
+background-color: green;
+padding: 30px;
+
+}
+
+
+.nome-loja {
+padding-bottom: 20px;
+color: white;
+}
+
+
+h1 {
+  font-size: px;
+  
+  color: white;
+}
+
+p {
+  font-size: 20px;
+  background-color: green;
+  color: black;
+}
+
+.titulo-vermelho {
+  color: white;
+}
+
+li {
+  background-color: green;
+border: 1px white solid;
+    padding: 5px;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.cor-vermelho-preto {
+  background-color: red;
+  color: white;
+}
+
+.cor-azul {
+  color: green;
+  font-weight: bold;
+}
+
+#cor-foto {
+  font-size: red;
+}
+
+.angulo-produto {
+  padding-right: 90px;
+}
+input {
+  margin-top: 5px;
+}
+
+.button-enviar {
+  margin-top: 5px;
+}
+
+.tabela th, tr, td {
+background-color: green;
+border: 1px white solid;
+    padding: 5px;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.trocar-cor {
+color: green;
+}
+
+
+
+
