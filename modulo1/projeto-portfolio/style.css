@@ -1,0 +1,182 @@
+
+
+nav {
+
+    display: flex;
+    justify-content: end;
+}
+
+.menu-nav a {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    text-decoration: none;
+    color: black;
+    margin-right: 29px;
+   
+    
+}
+
+.sobre-mim{
+    width: 860px;
+    margin: 175px auto 0;
+    display: flex;
+    justify-content: space-between;
+
+}
+.sobre-mim div h1 {
+    font-size: 44px;
+    font-weight: bold;
+    line-height: 60px;
+    margin-bottom: 40px;
+}
+
+sobre-mim div p {
+    width: 497px;
+    
+    font-size: 16px;
+    line-height: 23px;
+}
+
+.sobre-mim div button{
+    margin-top: 38px;
+    width: 200px;
+    height: 40px;
+    background:black;
+ 
+    border-radius: 2px;
+    border: none;
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    color: white;
+    transition: 0.5s;
+    position: relative;
+
+    
+}
+
+.efeito-botao .efeito:hover{
+transform: translateX(10px);
+
+}
+
+.sobre-mim div img {
+   width: 243px;
+   height: 243px; 
+   border-radius: 50%;
+}
+
+/* ABA PROJETOS */
+
+.section-meus-projetos h1  {
+    font-size: 28px;
+    color: aliceblue;
+    background: #384772;
+    
+}
+.card-project .p-project {
+    text-align: center;
+    padding-top: 10px; 
+  }
+  
+  
+  .cards{
+    height: 500px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px;
+  border-radius: 4%;
+  
+  
+  }
+  
+  .cards .card-project {
+  border:#8e8e8e 3px solid;
+  border-bottom:#8e8e8e 10px solid;
+  
+  width: 800px;
+  height: 400px;
+  background:#ffffff;
+  transition: 0.5s;
+  border-radius: 4%;
+  }
+  .cards .card-project:hover {
+  transform: translateY(-20px)
+  }
+  .cards .card-project .img-project {
+  position: relative;
+  width: 800px;
+  height: 300px;
+  background:#ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 4%;
+  }
+  .cards .card-project .img-project img {
+  width: 95%;
+  height: 95%;
+  border-radius: 4%;
+  
+    }
+  
+  .cards .card-project .img-project p {
+  color:#ffffff;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+        }
+   .cards .card-project .p-content {
+    position: relative;
+    width: 100;
+    height: 200px;
+    padding: 20px;
+    color:aqua;
+    text-align: center;
+    }
+
+
+    /* Minhas Habilidades */
+
+.img-habilidades img {
+width: 120px;
+
+   
+ }
+
+ .img-habilidades {
+     text-align: center;
+ }
+
+ .habilidades-center {
+     text-align: center;
+ }
+
+ .card{
+     width: 200px;
+     height: 400px;
+     background-color: brown;
+     border-radius: 15px;
+     margin-top: 100px;
+    
+ }
+
+ .container{
+     display: flex;
+     justify-content: center;
+ }
+
+ .container2{
+padding-top: 50px;
+
+ }
+
+ ul {
+     display: inline;
+ }
+  
