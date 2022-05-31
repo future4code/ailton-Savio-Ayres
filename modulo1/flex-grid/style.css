@@ -1,0 +1,38 @@
+* {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    margin: 0px;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    background-color: mediumvioletred;
+    padding: 0px 10px;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(242, 208, 224);
+    width: 25%;
+    padding-top: 2%;
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 0%;
+    gap: 10px;
+}
+
+footer {
+    background-color: mediumvioletred;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    color: black;
+    padding: 0.5%;
+}
