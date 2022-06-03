@@ -1,0 +1,48 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  /* HEADER!!! */
+  
+  .container {
+    display: grid;
+    grid-template-rows: 20vh 80vh ;
+    grid-template-columns: repeat(1, 1fr);
+
+    
+    
+    
+  }
+  
+  header {
+    height: 50%;
+    background-color: orange;
+    grid-column: 1 / -1;
+  
+    padding: 10px 15px;
+  }
+
+  .divbusca {
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+/* VIDEO!!! */
+
+
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+
+}
+
+video {
+    width: 500px;
+}
+
