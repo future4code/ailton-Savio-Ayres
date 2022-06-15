@@ -50,7 +50,6 @@ export default class App extends Component {
         {this.state.etapa === 4 || (
           <button onClick={this.irParaProximaEtapa}>Próxima etapa</button>
         )}
-        {/* {sumirBotao} */}
       </div>
     )
   }
