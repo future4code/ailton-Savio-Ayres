@@ -1,0 +1,185 @@
+/** 
+  *
+  *  ESTILOS GERAIS 
+  *
+  **/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    background-color: #fe7e02;
+    padding: 10px 5px 10px 5px;
+    color: white;
+    text-align: center;
+}
+
+input {
+    height: 20px;
+    width: 500px;
+}
+
+button:focus {
+    color: white;
+}
+
+img {
+    width: 40px;
+}
+
+.alinhar-botao{
+    width: auto;
+    text-align: center;
+    padding: 50bpx;
+
+}
+
+div>p:first-child {
+    display: inline;
+}
+
+div img {
+    background: white;
+    width: 20px;
+    
+}
+
+.botao-amarelo {
+    background-color: #ffaf43;
+    
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+  text-align: center;
+  
+
+    
+}
+.center{
+    width: 100%;
+    text-align: center;
+    padding-top: 60px;
+}
+
+
+.botao-amarelo:hover {
+    background-color: #c44f00;
+}
+
+.container {
+    height: 500px;
+    text-align: center;
+   padding-top: 30px;
+   
+}
+
+.icone {
+    height: 15px;
+}
+
+
+/** 
+  *
+  *  ESTILOS HOME 
+  *
+  **/
+
+#container-de-descricao {
+    background-color: #2274a5;
+    color: white;
+}
+
+#container-de-descricao>ol {
+    padding: 30px 0px;
+}
+
+#container-para-comprar {
+    background-color: #e7eb90;
+    width: 100%;
+    display: block;
+    
+}
+table {
+    margin: auto;
+    text-align: center;
+
+}
+
+
+#container-para-comprar>p {
+    color: #ff6600;
+    padding: 100px 0;
+    font-size: 60px;
+    text-align: center;
+    
+}
+.distancia-cabecalho {
+    margin-top: 100px;
+}
+/**
+  *
+  *  ESTILOS COMPRAR 
+  *
+  **/
+
+div:nth-child(2),
+div:last-child {
+    text-align: center;
+}
+
+table {
+    width: 60%;
+}
+
+td button {
+    background-color: #fadf63;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    color: black;
+
+    
+td button{
+        transform: scale(0.95);   
+         
+}
+    td button:hover {
+        transform: scale(0.95); 
+        transition: transform 2s linear; 
+    }
+    
+}
+
+.container-do-search {
+    margin-top: 20px;
+    height: 100px;
+}
+
+
+#back-button {
+    background-color: white;
+    width: 100px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 10px;
+    color: black;
+    text-align: center;
+    align-items: center;
+    
+}
+
+#back-button:hover {
+    background-color: #635a3d
+}
+
+td {
+    font-family: font-family: 'Roboto', sans-serif;
+}
+
+
+/* minhas atualizações  */
+
