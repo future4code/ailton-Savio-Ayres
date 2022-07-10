@@ -10,33 +10,145 @@ const ContainerPai = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: black;
+
+  button {
+    display: flex;
+    justify-content: end;
+    margin-left: 10px;
+    bottom: 5px;
+  }
 `
 
 const Container = styled.div`
-  border: 1px solid black;
-  background-color: darkgrey;
-
-  height: 80vh;
-  width: 400px;
+  border: 1px solid white;
+  background: linear-gradient(45deg, #fd267a, #ff6036);
+  border-radius: 10px;
+  height: 96vh;
+  width: 30vw;
+  margin-top: 20px;
 `
 const Header = styled.div`
+  font-family: 'Edu TAS Beginner', cursive;
+  font-size: 30px;
+  color: white;
   display: flex;
-  justify-content: center;
-`
-const BotaoLista = styled.button`
-  display: flex;
+
   justify-content: space-between;
-  align-items: flex-end;
+  padding: 10px;
 `
-const Card = styled.div``
+const BotaoMatches = styled.button`
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  color: #ffffff;
+  font-family: Brush Script MT;
+  font-size: 25px;
+  font-weight: 50px;
+  padding: 5px;
+  background: linear-gradient(45deg, #fd267a, #ff6036);
+  -webkit-box-shadow: 1px 1px 20px 0 #000000;
+  -moz-box-shadow: 1px 1px 20px 0 #000000;
+  box-shadow: 1px 1px 20px 0 #000000;
+  text-shadow: 1px 1px 20px #ffffff;
+  border: solid #337fed 1px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
 
-const Bio = styled.p``
+  :hover {
+    background: darkmagenta;
+    border: solid white 1px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+  }
+`
+const Card = styled.div`
+  width: auto;
+  height: auto;
+`
 
-const Name = styled.h3``
+const Bio = styled.p`
+  font-family: 'Edu TAS Beginner', cursive;
+  font-size: 14px;
+  display: flex;
+  text-align: center;
+`
 
-const Photo = styled.img``
+const Name = styled.h3`
+  font-family: Roboto, sans-serif;
+  color: black;
+  display: flex;
+  text-align: center;
+  margin-left: 20px;
+`
 
-const Age = styled.p``
+const Photo = styled.img`
+  width: 350px;
+  height: 350px;
+  box-shadow: 1px 1px 5px 5px white;
+  border-radius: 10px;
+  margin: 20px;
+  display: block;
+  align-items: center;
+
+  object-fit: contain;
+`
+
+const Age = styled.h3`
+  display: flex;
+  text-align: center;
+  margin-left: 10px;
+`
+
+const BotaoX = styled.button`
+  border-radius: 50px;
+  background-color: red;
+  border: 1px solid white;
+
+  color: white;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 55px;
+  cursor: pointer;
+  margin: 5px;
+  :hover {
+    opacity: 1;
+    right: 0;
+    background-color: white;
+    color: red;
+  }
+`
+const BotaoV = styled.button`
+  border-radius: 50px;
+
+  background-color: green;
+  border: 1px solid white;
+
+  color: white;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 55px;
+  cursor: pointer;
+  margin: 5px;
+  :hover {
+    opacity: 1;
+    right: 0;
+    background-color: white;
+    color: green;
+  }
+`
+
+const Footer = styled.footer`
+  display: flex;
+  justify-content: space-around;
+`
+
 function TelaPerfil(props) {
   const [profile, setProfile] = useState({})
 
@@ -50,32 +162,32 @@ function TelaPerfil(props) {
         <Header>
           <div>Astromatch</div>
 
-          <BotaoLista
+          <BotaoMatches
             onClick={() => {
               props.setCurrentScreen('list')
             }}
           >
             Lista de Matches
-          </BotaoLista>
+          </BotaoMatches>
         </Header>
+        <hr />
         {profile && (
           <Card>
-            <Name>{profile.name}</Name>
+            <Name>{profile.name}</Name> <Age>{profile.age} anos</Age>
             <Photo src={profile.photo}></Photo>
-            <Age>{profile.age} anos</Age>
             <Bio>{profile.bio}</Bio>
           </Card>
         )}
-        <footer>
-          <button onClick={() => choiceProfile(profile.id, false, setProfile)}>
+        <Footer>
+          <BotaoX onClick={() => choiceProfile(profile.id, false, setProfile)}>
             X
-          </button>
-          <button onClick={() => choiceProfile(profile.id, true, setProfile)}>
+          </BotaoX>
+          <BotaoV onClick={() => choiceProfile(profile.id, true, setProfile)}>
             V
-          </button>
-          <button onClick={clear}>Clear all Matches</button>
-        </footer>
+          </BotaoV>
+        </Footer>
       </Container>
+      <button onClick={clear}>Clear all Matches</button>
     </ContainerPai>
   )
 }
