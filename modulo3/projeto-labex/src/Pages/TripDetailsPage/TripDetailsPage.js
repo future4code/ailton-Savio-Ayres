@@ -3,7 +3,14 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
-const ContainerPai = styled.div``
+const ContainerPai = styled.div`
+  padding: 0px;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 const CardTrips = styled.div`
   color: white;
 `
@@ -15,9 +22,10 @@ export const TripDetailsPage = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token')
+    console.log(token)
     axios
       .get(
-        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/trip/${params.id}`,
+        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/savio-ayres-ailton/trip/${params.id}`,
         {
           headers: {
             auth: token
@@ -42,6 +50,7 @@ export const TripDetailsPage = () => {
   })
   return (
     <ContainerPai>
+      {console.log(tripDetail)};
       <CardTrips>
         <div>
           <p>{tripDetail.planet}</p>

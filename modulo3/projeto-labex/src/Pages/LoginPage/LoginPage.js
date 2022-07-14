@@ -25,13 +25,15 @@ export const LoginPage = () => {
     }
     axios
       .post(
-        'https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/login',
+        'https://us-central1-labenu-apis.cloudfunctions.net/labeX/savio-ayres-ailton/login',
         body
       )
       .then((response) => {
+        // goToAdminHome()
         console.log('Sucess', response.data)
         localStorage.setItem('token', response.data.token)
-        navigate('/adminHome')
+
+        goToAdminHome()
       })
       .catch((error) => {
         console.log('Failed', error.response)
@@ -62,7 +64,7 @@ export const LoginPage = () => {
       />
 
       {/* <button onClick={goToAdminHome}>Enviar</button> */}
-      <button onClick={goToAdminHome}>Enviar</button>
+      <button onClick={onSubmitLogin}>Enviar</button>
       <button onClick={goToHomePage}>Voltar</button>
     </div>
   )

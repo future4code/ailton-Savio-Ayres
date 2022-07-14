@@ -15,7 +15,7 @@ export const AdminHomePage = () => {
     const token = localStorage.getItem('token')
     axios
       .get(
-        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/trips`
+        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/savio-ayres-ailton/trips`
       )
       .then((response) => {
         setTrips(response.data.trips)
@@ -45,9 +45,11 @@ export const AdminHomePage = () => {
 
   const tripsCards = trips?.map((item) => {
     return (
-      <CardTrips onClick={() => goToTripDetails(item.id)}>
-        <p>{item.name}</p>
-      </CardTrips>
+      <div>
+        <CardTrips onClick={() => goToTripDetails(item.id)}>
+          <p>{item.name}</p>
+        </CardTrips>
+      </div>
     )
   })
   return (
