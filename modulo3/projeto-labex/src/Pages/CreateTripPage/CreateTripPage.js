@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { useState } from 'react'
 import axios from 'axios'
+import useForm from '../../Hooks/useForm'
 
 const ContainerGeral = styled.div`
   padding: 0px;
@@ -72,49 +73,81 @@ const InputDescricao = styled.input`
 `
 
 export const CreateTripPage = () => {
-  const [name, setName] = useState('')
-  const [planet, setPlanet] = useState('')
-  const [date, setDate] = useState('')
-  const [description, setDescription] = useState('')
-  const [duration, setDuration] = useState('')
+  const { form, onChange, cleanFields } = useForm({
+    name: '',
+    planet: '',
+    date: '',
+    description: '',
+    durationInDays: 0
+  })
+  // const [name, setName] = useState('')
+  // const [planet, setPlanet] = useState('')
+  // const [date, setDate] = useState('')
+  // const [description, setDescription] = useState('')
+  // const [duration, setDuration] = useState('')
 
-  const onChangeName = (event) => {
-    setName(event.target.value)
-  }
+  // const onChangeName = (event) => {
+  //   setName(event.target.value)
+  // }
 
-  const onChangePlanet = (event) => {
-    setPlanet(event.target.value)
-  }
+  // const onChangePlanet = (event) => {
+  //   setPlanet(event.target.value)
+  // }
 
-  const onChangeDate = (event) => {
-    setDate(event.target.value)
-  }
-  const onChangeDescription = (event) => {
-    setDescription(event.target.value)
-  }
+  // const onChangeDate = (event) => {
+  //   setDate(event.target.value)
+  // }
+  // const onChangeDescription = (event) => {
+  //   setDescription(event.target.value)
+  // }
 
-  const onChangeDuration = (event) => {
-    setDuration(event.target.value)
-  }
+  // const onChangeDuration = (event) => {
+  //   setDuration(event.target.value)
+  // }
   const navigate = useNavigate()
 
   const goToAdminHome = () => {
     navigate('/adminHome')
   }
 
+  const createTrip = (event) => {
+    console.log(form)
+    event.preventDefault()
+    cleanFields()
+    axios
+      .post(
+        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/savio-ayres-ailton/trips`,
+        form,
+        {
+          headers: {
+            auth: localStorage.getItem('token')
+          }
+        }
+      )
+      .then((response) => {
+        alert('Viagem criada!')
+        console.log(response.data)
+      })
+      .catch((error) => {
+        console.log('Erro encontrado', error.response)
+      })
+  }
+
   return (
     <ContainerGeral>
       <CardCriar>
         <Titulo>Criar Viagem</Titulo>
-        <form>
+        <form onSubmit={createTrip}>
           <InputNome
-            onChange={onChangeName}
+            name={'name'}
+            value={form.name}
+            onChange={onChange}
             placeholder={'Nome'}
             required
           ></InputNome>
 
-          <SelectPlanet name={'Select'}>
-            <option onChange={onChangePlanet} value="" disable="" selected="">
+          <SelectPlanet name={'planet'} value={form.planet} onChange={onChange}>
+            <option disable="" selected={undefined}>
               Escolha um Planeta
             </option>
             <option value={'Mercúrio'}>Mercúrio</option>
@@ -128,23 +161,27 @@ export const CreateTripPage = () => {
             <option value={'Plutão'}>Plutão</option>
           </SelectPlanet>
           <InputData
-            onChange={onChangeDate}
+            name={'date'}
+            value={form.date}
+            onChange={onChange}
             placeholder="Data"
             type="Date"
-            name="date"
             required=""
             min="2022-07-14"
           ></InputData>
           <InputDescricao
-            onChange={onChangeDescription}
+            name={'description'}
+            value={form.description}
+            onChange={onChange}
             placeholder="Descrição"
             required
           ></InputDescricao>
           <InputDuracao
-            onChange={onChangeDuration}
+            name={'durationInDays'}
+            value={form.durationInDays}
+            onChange={onChange}
             placeholder="Duração em dias"
             type="number"
-            name="durationInDays"
             required=""
             min="50"
           ></InputDuracao>
