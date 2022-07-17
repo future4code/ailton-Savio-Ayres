@@ -3,27 +3,48 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { labexApi } from '../../Api'
+
+const ContainerPai = styled.div`
+  width: 100vw;
+
+  height: 100vh;
+  overflow: auto;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+`
+
+const ContainerButtons = styled.div`
+  width: 100vw;
+
+  height: 100vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
 
 const CardTrips = styled.div`
   color: white;
+  padding: 50px;
+  width: 30%;
+  height: 4%;
+
+  gap: 0 70px;
+  background-color: #003153;
+  display: flex;
+
+  align-items: center;
 `
+
+const ButtonBack = styled.button``
+const ButtonCreateTrip = styled.button``
 
 export const AdminHomePage = () => {
   const [trips, setTrips] = useState([])
-
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    axios
-      .get(
-        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/savio-ayres-ailton/trips`
-      )
-      .then((response) => {
-        setTrips(response.data.trips)
-      })
-      .catch((error) => {
-        console.log(error.data)
-      })
-  })
 
   const navigate = useNavigate()
 
@@ -43,22 +64,33 @@ export const AdminHomePage = () => {
     navigate(`/admin/tripDetails/${id}`)
   }
 
+  useEffect(() => {
+    labexApi
+
+      .get(`/trips`)
+      .then((response) => {
+        setTrips(response.data.trips)
+      })
+      .catch((error) => {
+        console.error(error.data)
+      })
+  }, [])
+
   const tripsCards = trips?.map((item) => {
     return (
-      <div>
+      <ContainerPai>
         <CardTrips onClick={() => goToTripDetails(item.id)}>
           <p>{item.name}</p>
         </CardTrips>
-      </div>
+      </ContainerPai>
     )
   })
   return (
-    <div>
-      <button onClick={goToHomePage}>voltar</button>
-      <button onClick={goToCreateTrip}>Criar Viagem</button>
+    <ContainerButtons>
+      <ButtonBack onClick={goToHomePage}>voltar</ButtonBack>
+      <ButtonCreateTrip onClick={goToCreateTrip}>Criar Viagem</ButtonCreateTrip>
       <button onClick={goToLoginPage}>Logout</button>
-
       {tripsCards}
-    </div>
+    </ContainerButtons>
   )
 }

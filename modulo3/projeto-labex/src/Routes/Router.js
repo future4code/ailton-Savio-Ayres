@@ -7,8 +7,10 @@ import { AdminHomePage } from '../Pages/AdminHomePage/AdminHomePage.js'
 import { TripDetailsPage } from '../Pages/TripDetailsPage/TripDetailsPage.js'
 import { CreateTripPage } from '../Pages/CreateTripPage/CreateTripPage.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useToken } from '../Hooks/useToken'
 
 const Router = () => {
+  const { onSubmitLogin } = useToken()
   return (
     <BrowserRouter>
       <Routes>
@@ -18,7 +20,10 @@ const Router = () => {
           path="/trips/applicationForm"
           element={<ApplicationFormPage />}
         ></Route>
-        <Route path="/loginPage" element={<LoginPage />}></Route>
+        <Route
+          path="/loginPage"
+          element={<LoginPage onSubmitLogin={onSubmitLogin} />}
+        ></Route>
         <Route path="/adminHome" element={<AdminHomePage />}></Route>
         <Route
           path="/admin/tripDetails/:id"

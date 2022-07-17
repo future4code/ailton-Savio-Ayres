@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { useState } from 'react'
 import axios from 'axios'
 import useForm from '../../Hooks/useForm'
+import { labexApi } from '../../Api'
 
 const ContainerGeral = styled.div`
   padding: 0px;
@@ -80,64 +81,34 @@ export const CreateTripPage = () => {
     description: '',
     durationInDays: 0
   })
-  // const [name, setName] = useState('')
-  // const [planet, setPlanet] = useState('')
-  // const [date, setDate] = useState('')
-  // const [description, setDescription] = useState('')
-  // const [duration, setDuration] = useState('')
 
-  // const onChangeName = (event) => {
-  //   setName(event.target.value)
-  // }
-
-  // const onChangePlanet = (event) => {
-  //   setPlanet(event.target.value)
-  // }
-
-  // const onChangeDate = (event) => {
-  //   setDate(event.target.value)
-  // }
-  // const onChangeDescription = (event) => {
-  //   setDescription(event.target.value)
-  // }
-
-  // const onChangeDuration = (event) => {
-  //   setDuration(event.target.value)
-  // }
+  const createTrip = (body) => {
+    console.log(body)
+    labexApi
+      .post(`/trips`, form)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error.data)
+      })
+  }
   const navigate = useNavigate()
 
   const goToAdminHome = () => {
     navigate('/adminHome')
   }
 
-  const createTrip = (event) => {
-    console.log(form)
-    event.preventDefault()
-    cleanFields()
-    axios
-      .post(
-        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/savio-ayres-ailton/trips`,
-        form,
-        {
-          headers: {
-            auth: localStorage.getItem('token')
-          }
-        }
-      )
-      .then((response) => {
-        alert('Viagem criada!')
-        console.log(response.data)
-      })
-      .catch((error) => {
-        console.log('Erro encontrado', error.response)
-      })
-  }
-
   return (
     <ContainerGeral>
       <CardCriar>
         <Titulo>Criar Viagem</Titulo>
-        <form onSubmit={createTrip}>
+        <form
+          onSubmit={(event) => {
+            createTrip(form)
+            event.preventDefault()
+          }}
+        >
           <InputNome
             name={'name'}
             value={form.name}

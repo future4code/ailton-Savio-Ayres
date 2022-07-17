@@ -1,41 +1,95 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { HomePage } from '../HomePage/HomePage'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import { axios } from 'react'
+import axios from 'axios'
+import { labexApi } from '../../Api'
 
 const ContainerGeral = styled.div`
   padding: 0px;
+  position: relative;
   width: 100vw;
   min-height: 100vh;
+  max-height: 100vh;
+  overflow: auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+`
+const ContainerCards = styled.div`
+  margin: 0 20px;
+  padding: 20px;
 `
 
 const Titulo = styled.h1`
   color: white;
+  display: flex;
+  text-align: center;
 `
-const CardTrips = styled.div``
+const CardTrips = styled.div`
+  color: white;
+  padding: 25px;
+
+  gap: 0 250px;
+  background-color: #003153;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+`
+const ButtonBack = styled.button`
+  background-color: #14145a;
+  border-radius: 0 20px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  margin: 10px 20px;
+`
+
+const ButtonSignup = styled.button`
+  background-color: #14145a;
+  border-radius: 0 20px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  margin: 10px 20px;
+`
 
 export const ListTripsPage = () => {
   const [trips, setTrips] = useState([])
+  const [counter, setCounter] = useState(0)
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    axios
-      .get(
-        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/savio-ayres-ailton/trips`
-      )
+    labexApi
+
+      .get(`/trips`)
       .then((response) => {
         setTrips(response.data.trips)
       })
       .catch((error) => {
-        console.log(error.data)
+        console.error(error.data)
       })
-  })
+  }, [counter])
+
+  const deleteTrip = (id) => {
+    labexApi
+      .delete(`/trips/${id}`)
+      .then((response) => {
+        console.log(response)
+        setCounter(counter + 1)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
 
   const navigate = useNavigate()
 
@@ -44,14 +98,16 @@ export const ListTripsPage = () => {
   }
 
   const goToForm = (id) => {
-    navigate(`/trips/list/${id}`)
+    navigate(`/trips/applicationForm`)
   }
 
   const tripsCards = trips?.map((item) => {
     return (
       <div>
-        <CardTrips onClick={() => goToForm(item.id)}>
+        <CardTrips onClick={() => item.id}>
           <p>{item.name}</p>
+
+          <button onClick={() => deleteTrip(item.id)}>Delete</button>
         </CardTrips>
       </div>
     )
@@ -59,12 +115,12 @@ export const ListTripsPage = () => {
 
   return (
     <ContainerGeral>
-      <div>
-        <Titulo>Lista de Viagens</Titulo>
-        <button onClick={goToHomePage}>Voltar</button>
-        <button onClick={goToForm}>Inscrever-se</button>
-      </div>
-      {tripsCards}
+      <Titulo>Lista de Viagens</Titulo>
+      <ContainerCards>
+        {tripsCards}
+        <ButtonBack onClick={goToHomePage}>Voltar</ButtonBack>
+        <ButtonSignup onClick={goToForm}>Inscrever-se</ButtonSignup>
+      </ContainerCards>
     </ContainerGeral>
   )
 }
