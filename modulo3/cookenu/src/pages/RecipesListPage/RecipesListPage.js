@@ -1,10 +1,11 @@
 import React from 'react'
+import { Button } from '@mui/material'
 
 const RecipesListPage = () => {
   return (
-    <di>
+    <div>
       <h1>RecipesListPage</h1>
-    </di>
+    </div>
   )
 }
 export default RecipesListPage
