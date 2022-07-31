@@ -17,8 +17,8 @@ const LoginForm = () => {
   const login = () => {
     axios
       .post(`${BASE_URL}/user/login`, form)
-      .then((resp) => console.log(resp))
-      .catch((error) => console.error(error))
+      .then((resp) => console.log(form))
+      .catch((error) => alert('Erro no login'))
   }
 
   return (
@@ -32,7 +32,6 @@ const LoginForm = () => {
             label={'Email'}
             fullWidth
             margin={'normal'}
-            required
             type={'email'}
           />
           <TextField
