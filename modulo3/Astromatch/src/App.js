@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import TelaPerfil from './TelaPerfil/TelaPerfil'
 import TelaListaMatches from './TelaListaMatches/TelaListaMatches'
