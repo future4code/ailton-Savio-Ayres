@@ -6,9 +6,6 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-app.listen(3003, () => {
-  console.log('Server is running in http://localhost:3003')
-})
 // ------------------------------------------------------
 // EXERCÍCIO 1
 app.get('/', (req: Request, res: Response) => {
@@ -98,11 +95,15 @@ app.get('/posts', (req: Request, res: Response) => {
 })
 //--------------------------------------------------------
 // EXERCÍCIO 8 >>>. Revisar depois, não deu certo.
-app.get('/posts:id', (req: Request, resp: Response) => {
-  const id = req.params.id
+// app.get('/posts:id', (req: Request, resp: Response) => {
+//   const id = req.params.id
 
-  const posts: post[] = posts.filter((post) => {
-    return post.userId === Number(id)
-  })
-  response.send(posts)
+//   const posts: post[] = posts.filter((post) => {
+//     return post.userId === Number(id)
+//   })
+//   response.send(posts)
+// })
+
+app.listen(3003, () => {
+  console.log('Server is running in http://localhost:3003')
 })
