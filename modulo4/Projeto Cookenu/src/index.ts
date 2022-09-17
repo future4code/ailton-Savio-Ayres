@@ -1,7 +1,6 @@
 import { app } from './app'
-import { BaseDataBase } from './data/BaseDataBase'
+import UserEndpoint from './endpoints/User'
 
-app.get('/teste', async (req, res) => {
-  const result = await new BaseDataBase().getConnection().raw('SHOW TABLES')
-  res.send({ result })
-})
+const userEndpoint = new UserEndpoint()
+
+app.post('/criar-usuario', userEndpoint.create)
