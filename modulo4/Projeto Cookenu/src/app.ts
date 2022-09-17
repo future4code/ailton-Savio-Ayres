@@ -6,9 +6,10 @@ export const app: Express = express()
 
 app.use(cors())
 
-const server = app.listen(process.env.PORT || 3003, () => {
+const server = app.listen(3003, () => {
   if (server) {
     const address = server.address() as AddressInfo
+    console.log(process.env.PORT)
     console.log(`Server is running in http://localhost: ${address.port}`)
   } else {
     console.error(`Failure upon starting server.`)

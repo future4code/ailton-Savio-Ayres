@@ -17,5 +17,6 @@ export class BaseDataBase {
         }
       })
     }
+    return BaseDataBase.connection
   }
 }
