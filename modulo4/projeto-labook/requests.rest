@@ -1,0 +1,9 @@
+### Endpoint de teste
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name":"savio",
+     "email":"savio@gmail.com",
+      "password":"savio245"
+}
